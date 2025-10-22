@@ -15,33 +15,38 @@ const AppHeader = ({ resumeRef }: AppHeaderProps) => {
 
   return (
     <header className={styles.appHeader} role="banner">
-      <button
-        type="button"
-        className={styles.logoButton}
-        onClick={handleScrollToTop}
-        aria-label="Voltar ao início da página"
-      >
-        <img src={arabellaLogo} alt="Logotipo da Arabella Currículos Claros" className={styles.logo} />
-      </button>
-      <div className={styles.headerContent}>
+      <div className={styles.branding}>
+        <button
+          type="button"
+          className={styles.logoButton}
+          onClick={handleScrollToTop}
+          aria-label="Voltar ao início da página"
+        >
+          <img
+            src={curriculoClaroLogo}
+            alt="Logotipo do Currículo Claro"
+            className={styles.curriculoClaroLogo}
+          />
+        </button>
+        <span className={styles.poweredByText}>powered by</span>
         <img
-          src={curriculoClaroLogo}
-          alt="Logotipo do Currículo Claro"
-          className={styles.curriculoClaroLogo}
+          src={arabellaLogo}
+          alt="Logotipo da Arabella.dev"
+          className={styles.partnerLogo}
         />
-        <nav className={styles.navigation} aria-label="Ações principais">
-          <a
-            className={styles.contactLink}
-            href="https://www.instagram.com/arabella.curriculos"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Abrir Instagram da Arabella em nova aba"
-          >
-            Entrar em contato
-          </a>
-          <DownloadButton targetRef={resumeRef} variant="compact" />
-        </nav>
       </div>
+      <nav className={styles.navigation} aria-label="Ações principais">
+        <a
+          className={styles.contactLink}
+          href="https://www.instagram.com/arabella.curriculos"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Abrir Instagram da Arabella em nova aba"
+        >
+          Entrar em contato
+        </a>
+        <DownloadButton targetRef={resumeRef} variant="compact" />
+      </nav>
     </header>
   )
 }

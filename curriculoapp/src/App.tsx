@@ -5,6 +5,7 @@ import AppHeader from './components/AppHeader'
 import DownloadButton from './components/DownloadButton'
 import ResumeForm from './components/ResumeForm'
 import ResumePreview from './components/ResumePreview'
+import curriculoClaroLogo from './assets/curriculo-claro-logo.png'
 
 const App = () => {
   const resumeRef = useRef<HTMLDivElement | null>(null)
@@ -13,14 +14,14 @@ const App = () => {
     <div className={styles.app}>
       <AppHeader resumeRef={resumeRef} />
       <header className={styles.hero}>
-        <h1>Currículo direto e compatível com ATS</h1>
-        <p>
-          Monte um currículo objetivo e profissional, sem ruídos visuais, pensado para leitura humana
-          e para as IAs de triagem como LinkedIn, Gupy ou Greenhouse.
-        </p>
-        <p className={styles.heroNote}>
-          Personalize detalhes finos, visualize em tempo real e exporte um PDF limpo que preserva a
-          hierarquia de conteúdo valorizada por sistemas automatizados.
+        <img
+          src={curriculoClaroLogo}
+          alt="Logotipo do Currículo Claro"
+          className={styles.heroLogo}
+        />
+        <p className={styles.heroLead}>
+          Monte um currículo objetivo em minutos, pronto para encantar recrutadores humanos e as IAs
+          de triagem.
         </p>
       </header>
       <main className={styles.main}>

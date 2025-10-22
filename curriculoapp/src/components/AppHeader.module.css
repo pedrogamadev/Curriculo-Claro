@@ -14,6 +14,18 @@
   margin-bottom: 1.75rem;
 }
 
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.curriculoClaroLogo {
+  height: 32px;
+  width: auto;
+}
+
 .logoButton {
   border: none;
   background: transparent;
@@ -77,6 +89,10 @@
     grid-template-columns: auto 1fr;
   }
 
+  .curriculoClaroLogo {
+    height: 30px;
+  }
+
   .logo {
     height: 32px;
   }
@@ -89,6 +105,17 @@
     gap: 0.75rem;
     padding: 0.75rem 1.1rem;
     margin-bottom: 1.4rem;
+  }
+
+  .headerContent {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .curriculoClaroLogo {
+    height: 28px;
   }
 
   .navigation {

@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import styles from './App.module.css'
 import CustomizationControls from './components/CustomizationControls'
+import AppHeader from './components/AppHeader'
 import DownloadButton from './components/DownloadButton'
 import ResumeForm from './components/ResumeForm'
 import ResumePreview from './components/ResumePreview'
@@ -10,6 +11,7 @@ const App = () => {
 
   return (
     <div className={styles.app}>
+      <AppHeader resumeRef={resumeRef} />
       <header className={styles.hero}>
         <h1>Currículo direto e compatível com ATS</h1>
         <p>

@@ -1,32 +1,47 @@
 .app {
   min-height: 100vh;
   background: linear-gradient(135deg, #f2f6ff 0%, #eef1f8 100%);
-  padding: 2.5rem 1.5rem 4rem;
+  padding: 0 1.5rem 4rem;
   box-sizing: border-box;
 }
 
 .hero {
-  max-width: 960px;
-  margin: 0 auto 2.5rem;
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
   text-align: center;
   color: #1f2933;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
 }
 
 .hero h1 {
   font-size: 2.2rem;
-  margin-bottom: 0.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  margin: 0;
+  background-image: linear-gradient(120deg, #1f497d, #5ac4ce);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #1f497d;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p,
+.heroNote {
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: clamp(1rem, 1vw + 0.95rem, 1.1rem);
 }
 
 .hero p {
-  font-size: 1rem;
-  margin: 0;
-  color: #3b4a5a;
+  color: #42526e;
 }
 
 .heroNote {
-  margin-top: 0.75rem;
-  font-size: 0.95rem;
-  color: #42526e;
+  color: #52607a;
 }
 
 .main {
@@ -98,10 +113,27 @@
 
 @media (max-width: 640px) {
   .app {
-    padding: 1.75rem 1rem 3rem;
+    padding: 0 1rem 3rem;
+  }
+
+  .hero {
+    margin: 1.25rem auto 2rem;
+  }
+
+  .hero {
+    gap: 1rem;
+    max-width: min(100%, 640px);
   }
 
   .hero h1 {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
+    background-image: none;
+    color: #1f497d;
+    -webkit-text-fill-color: #1f497d;
+  }
+
+  .hero p,
+  .heroNote {
+    font-size: 1rem;
   }
 }

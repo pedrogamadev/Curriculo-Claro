@@ -21,3 +21,14 @@
   outline: 3px solid rgba(255, 255, 255, 0.6);
   outline-offset: 2px;
 }
+
+.compact {
+  padding: 0.55rem 1.35rem;
+  font-size: 0.95rem;
+  align-self: center;
+  box-shadow: 0 6px 14px rgba(31, 73, 125, 0.18);
+}
+
+.compact:hover {
+  box-shadow: 0 8px 16px rgba(31, 73, 125, 0.22);
+}

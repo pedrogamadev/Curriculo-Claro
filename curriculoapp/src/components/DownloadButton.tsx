@@ -5,6 +5,7 @@ import type { MutableRefObject } from 'react'
 
 type DownloadButtonProps = {
   targetRef: MutableRefObject<HTMLDivElement | null>
+  variant?: 'default' | 'compact'
 }
 
 const normalizeFileName = (value: string) =>
@@ -15,7 +16,7 @@ const normalizeFileName = (value: string) =>
     .trim()
     .replace(/\s+/g, '-')
 
-const DownloadButton = ({ targetRef }: DownloadButtonProps) => {
+const DownloadButton = ({ targetRef, variant = 'default' }: DownloadButtonProps) => {
   const { state } = useResume()
   const { contact, preferences } = state
 
@@ -40,7 +41,7 @@ const DownloadButton = ({ targetRef }: DownloadButtonProps) => {
     <button
       type="button"
       onClick={handleDownload}
-      className={styles.button}
+      className={variant === 'compact' ? `${styles.button} ${styles.compact}` : styles.button}
       style={{ backgroundColor: preferences.accentColor }}
       title="Baixar PDF profissional e compatível com sistemas ATS"
       aria-label="Baixar PDF profissional e compatível com sistemas ATS"

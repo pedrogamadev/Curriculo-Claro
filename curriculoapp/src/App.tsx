@@ -11,10 +11,14 @@ const App = () => {
   return (
     <div className={styles.app}>
       <header className={styles.hero}>
-        <h1>Gerador de Currículo ATS</h1>
+        <h1>Currículo direto e compatível com ATS</h1>
         <p>
-          Preencha suas informações, visualize o currículo em tempo real e exporte um PDF otimizado
-          para sistemas de triagem.
+          Monte um currículo objetivo e profissional, sem ruídos visuais, pensado para leitura humana
+          e para as IAs de triagem como LinkedIn, Gupy ou Greenhouse.
+        </p>
+        <p className={styles.heroNote}>
+          Personalize detalhes finos, visualize em tempo real e exporte um PDF limpo que preserva a
+          hierarquia de conteúdo valorizada por sistemas automatizados.
         </p>
       </header>
       <main className={styles.main}>
@@ -26,6 +30,14 @@ const App = () => {
           <div className={styles.previewWrapper}>
             <ResumePreview ref={resumeRef} />
           </div>
+          <aside className={styles.atsNotice} aria-label="Informações sobre o PDF gerado">
+            <h2>Por que o PDF é ATS-friendly?</h2>
+            <ul>
+              <li>Estrutura linear e sem elementos decorativos que atrapalham leitores automáticos.</li>
+              <li>Tipografia configurável dentro de limites seguros para preservação da legibilidade.</li>
+              <li>Dados salvos em texto puro, ideais para IAs de triagem identificarem palavras-chave.</li>
+            </ul>
+          </aside>
           <DownloadButton targetRef={resumeRef} />
         </div>
       </main>

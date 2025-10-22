@@ -42,6 +42,8 @@ const DownloadButton = ({ targetRef }: DownloadButtonProps) => {
       onClick={handleDownload}
       className={styles.button}
       style={{ backgroundColor: preferences.accentColor }}
+      title="Baixar PDF profissional e compatível com sistemas ATS"
+      aria-label="Baixar PDF profissional e compatível com sistemas ATS"
     >
       Baixar PDF
     </button>

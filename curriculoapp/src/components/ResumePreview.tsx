@@ -7,6 +7,13 @@ const ResumePreview = forwardRef<HTMLDivElement>((_, ref) => {
   const { state } = useResume()
   const { contact, summary, experiences, education, skills, additional, preferences } = state
 
+  const templateClass =
+    {
+      classic: styles.templateClassic,
+      centered: styles.templateCentered,
+      spotlight: styles.templateSpotlight
+    }[preferences.template] ?? styles.templateClassic
+
   const formatMonth = (value: string) => {
     if (!value) return ''
     const [year, month] = value.split('-')
@@ -33,13 +40,29 @@ const ResumePreview = forwardRef<HTMLDivElement>((_, ref) => {
 
   const skillsToDisplay = skills.filter((skill) => skill.trim().length > 0)
 
+  const markerSymbol =
+    preferences.bulletStyle === 'square'
+      ? '■'
+      : preferences.bulletStyle === 'dash'
+        ? '–'
+        : '•'
+
+  const markerContent = JSON.stringify(markerSymbol)
+  const listStyle = preferences.bulletStyle === 'dash' ? 'none' : preferences.bulletStyle
+
   const previewStyle = {
     '--accent-color': preferences.accentColor,
-    '--resume-font': preferences.fontFamily
+    '--resume-font': preferences.fontFamily,
+    '--resume-font-size': `${preferences.baseFontSize}pt`,
+    '--resume-line-height': `${preferences.lineHeight}`,
+    '--resume-section-gap': `${preferences.sectionSpacing}rem`,
+    '--resume-list-style': listStyle,
+    '--resume-marker-symbol': markerContent,
+    '--resume-inline-marker': markerContent
   } as CSSProperties
 
   return (
-    <div ref={ref} className={styles.resume} style={previewStyle}>
+    <div ref={ref} className={`${styles.resume} ${templateClass}`} style={previewStyle}>
       <header className={styles.header}>
         <h1>{contact.fullName || 'Seu nome completo'}</h1>
         <div className={styles.contactLine}>
@@ -90,7 +113,11 @@ const ResumePreview = forwardRef<HTMLDivElement>((_, ref) => {
                   </div>
                 </header>
                 {achievements.length > 0 && (
-                  <ul className={styles.list}>
+                  <ul
+                    className={`${styles.list} ${
+                      preferences.bulletStyle === 'dash' ? styles.listDash : ''
+                    }`}
+                  >
                     {achievements.map((item, index) => (
                       <li key={`${experience.id}-achievement-${index}`}>{item}</li>
                     ))}

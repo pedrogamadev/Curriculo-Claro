@@ -33,9 +33,17 @@ type AdditionalEntry = {
   details: string
 }
 
+type BulletStyle = 'disc' | 'square' | 'dash'
+type TemplateOption = 'classic' | 'centered' | 'spotlight'
+
 type Preferences = {
   accentColor: string
   fontFamily: string
+  baseFontSize: number
+  lineHeight: number
+  sectionSpacing: number
+  bulletStyle: BulletStyle
+  template: TemplateOption
 }
 
 type ResumeState = {
@@ -68,6 +76,11 @@ type ResumeContextValue = {
   removeAdditional: (id: string) => void
   setAccentColor: (color: string) => void
   setFontFamily: (font: string) => void
+  setBaseFontSize: (size: number) => void
+  setLineHeight: (value: number) => void
+  setSectionSpacing: (value: number) => void
+  setBulletStyle: (style: BulletStyle) => void
+  setTemplate: (template: TemplateOption) => void
 }
 
 const ResumeContext = createContext<ResumeContextValue | undefined>(undefined)
@@ -113,7 +126,12 @@ const defaultState: ResumeState = {
   additional: [],
   preferences: {
     accentColor: '#1F497D',
-    fontFamily: 'Arial'
+    fontFamily: 'Arial',
+    baseFontSize: 12,
+    lineHeight: 1.5,
+    sectionSpacing: 1,
+    bulletStyle: 'disc',
+    template: 'classic'
   }
 }
 
@@ -285,6 +303,41 @@ export const ResumeProvider = ({ children }: ResumeProviderProps) => {
     }))
   }
 
+  const setBaseFontSize = (size: number) => {
+    setState((prev) => ({
+      ...prev,
+      preferences: { ...prev.preferences, baseFontSize: size }
+    }))
+  }
+
+  const setLineHeight = (value: number) => {
+    setState((prev) => ({
+      ...prev,
+      preferences: { ...prev.preferences, lineHeight: value }
+    }))
+  }
+
+  const setSectionSpacing = (value: number) => {
+    setState((prev) => ({
+      ...prev,
+      preferences: { ...prev.preferences, sectionSpacing: value }
+    }))
+  }
+
+  const setBulletStyle = (style: BulletStyle) => {
+    setState((prev) => ({
+      ...prev,
+      preferences: { ...prev.preferences, bulletStyle: style }
+    }))
+  }
+
+  const setTemplate = (template: TemplateOption) => {
+    setState((prev) => ({
+      ...prev,
+      preferences: { ...prev.preferences, template }
+    }))
+  }
+
   return (
     <ResumeContext.Provider
       value={{
@@ -306,7 +359,12 @@ export const ResumeProvider = ({ children }: ResumeProviderProps) => {
         updateAdditional,
         removeAdditional,
         setAccentColor,
-        setFontFamily
+        setFontFamily,
+        setBaseFontSize,
+        setLineHeight,
+        setSectionSpacing,
+        setBulletStyle,
+        setTemplate
       }}
     >
       {children}
@@ -322,4 +380,11 @@ export const useResume = () => {
   return context
 }
 
-export type { ResumeState, WorkExperience, EducationEntry, AdditionalEntry }
+export type {
+  ResumeState,
+  WorkExperience,
+  EducationEntry,
+  AdditionalEntry,
+  BulletStyle,
+  TemplateOption
+}

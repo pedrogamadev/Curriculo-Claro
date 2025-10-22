@@ -87,6 +87,14 @@
   overflow: auto;
 }
 
+.previewActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .atsNotice {
   background: #f8fafc;
   border-radius: 12px;
@@ -119,6 +127,10 @@
 
   .previewColumn {
     position: static;
+  }
+
+  .previewActions {
+    justify-content: center;
   }
 }
 

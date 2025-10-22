@@ -28,6 +28,7 @@
 .poweredByText {
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .curriculoClaroLogo {
@@ -121,8 +122,8 @@
   }
 
   .branding {
-    flex-direction: column;
-    gap: 0.35rem;
+    justify-content: center;
+    gap: 0.45rem;
     font-size: 0.68rem;
   }
 

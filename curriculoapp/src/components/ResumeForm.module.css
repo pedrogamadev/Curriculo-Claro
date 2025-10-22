@@ -1,0 +1,178 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1.25rem;
+  color: #1f2933;
+}
+
+.sectionTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  gap: 0.4rem;
+  color: #1f2933;
+  font-size: 0.95rem;
+}
+
+.label input,
+.label textarea {
+  border: 1px solid #cbd2d9;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.label input:focus,
+.label textarea:focus {
+  outline: 2px solid #1f497d;
+  outline-offset: 2px;
+}
+
+.secondaryButton {
+  align-self: flex-start;
+  border-radius: 999px;
+  border: 1px solid #1f497d;
+  background: transparent;
+  color: #1f497d;
+  padding: 0.45rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.secondaryButton:hover {
+  background: rgba(31, 73, 125, 0.08);
+}
+
+.card {
+  border: 1px solid #dbe2f0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background: #fdfdff;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardHeader h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.textButton {
+  border: none;
+  background: none;
+  color: #b42318;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.textButton:hover {
+  text-decoration: underline;
+}
+
+.achievementList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.helperText {
+  font-size: 0.85rem;
+  color: #52606d;
+  margin: 0;
+}
+
+.achievementRow {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.achievementRow label {
+  flex: 1;
+}
+
+.skillForm {
+  margin-bottom: 1rem;
+}
+
+.skillRow {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.skillList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skillItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #eef2ff;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+}
+
+.skillItem button {
+  color: #1f497d;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 1.25rem;
+  }
+
+  .achievementRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .skillRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
